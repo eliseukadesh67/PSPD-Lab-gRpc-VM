@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package service;
+
+// Mensagem para adicionar uma palavra
+message AddWordRequest {
+    string word = 1;
+    string definition = 2;
+}
+
+// Resposta ao adicionar uma palavra
+message AddWordResponse {
+    string message = 1;
+}
+
+// Mensagem para listar palavras
+message ListWordsRequest {
+    // Você pode adicionar filtros ou parâmetros adicionais aqui se necessário
+}
+
+// Mensagem contendo uma palavra
+message Word {
+    string word = 1;
+}
+
+// Resposta ao listar palavras
+message ListWordsResponse {
+    repeated Word words = 1;  // Lista de palavras
+}
+
+// Serviço de dicionário
+service DictionaryService {
+    // Serviço para adicionar uma palavra
+    rpc AddWord(AddWordRequest) returns (AddWordResponse);
+
+    // Serviço para listar palavras
+    rpc ListWords(ListWordsRequest) returns (ListWordsResponse);
+}
