@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package dictionary;
+
+// Serviço gRPC
+service DictionaryService {
+  rpc AddWord (WordEntry) returns (Status);
+  rpc GetWord (WordRequest) returns (WordResponse);
+}
+
+// Mensagens
+message WordEntry {
+  string word = 1;
+  string meaning = 2;
+}
+
+message WordRequest {
+  string word = 1;
+}
+
+message WordResponse {
+  string word = 1;
+  string meaning = 2;
+  bool found = 3;
+}
+
+message Status {
+  bool success = 1;
+  string message = 2;
+}
