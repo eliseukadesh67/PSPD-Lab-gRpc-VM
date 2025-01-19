@@ -41,7 +41,7 @@ public:
 };
 
 void RunServer() {
-    std::string server_address("0.0.0.0:50052");
+    std::string server_address("0.0.0.0:8080");
     DictionaryServiceImpl service;
 
     grpc::ServerBuilder builder;

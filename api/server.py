@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 # Configuração do cliente gRPC
 def get_grpc_client():
-    channel = grpc.insecure_channel('localhost:50051')
+    channel = grpc.insecure_channel('localhost:8080')
     return dictionary_pb2_grpc.DictionaryServiceStub(channel)
 
 @app.route('/add_word', methods=['POST'])
